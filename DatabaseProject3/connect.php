@@ -2,8 +2,8 @@
 
 $dbhost = "127.0.0.1";
 $dbname = "ip_3";
-$dbuser = "www-aplikace";
-$dbpass = "Bezpe4n0Heslo.";
+$dbuser = "-";
+$dbpass = "-";
 $charset = 'utf8mb4';
 
 if(!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname))
