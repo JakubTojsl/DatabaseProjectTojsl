@@ -41,7 +41,7 @@ else
         echo "<td>{$row['room_name']}</td>";
         echo "<td>{$row['phone']}</td>";
         echo "<td>{$row['job']}</td>";
-        echo "<td><button><a href='updateEmployees.php?updateid={$row['employee_id']}'>Upravit</a></button><button><a href='delete.php?deleteid={$row['employee_id']}'>Odstranit</a></button></td>";
+        echo "<td><button><a href='updateEmployees.php?updateid={$row['employee_id']}'>Upravit</a></button><button><a href='deleteEmployee.php?deleteid={$row['employee_id']}'>Odstranit</a></button></td>";
         echo "</tr>";
 
     }

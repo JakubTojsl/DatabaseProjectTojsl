@@ -38,7 +38,7 @@ else
         echo "<td><a href='mistnost.php?roomId={$row['room_id']}'>{$row['name']}</a></td>";
         echo "<td>{$row['no']}</td>";
         echo "<td>{$row['phone']}</td>";
-        echo "<td><button><a href='updateRooms.php?updateid={$row['room_id']}'>Upravit</a></button><button><a href='delete.php?deleteid={$row['room_id']}'>Odstranit</a></button></td>";
+        echo "<td><button><a href='updateRooms.php?updateid={$row['room_id']}'>Upravit</a></button><button><a href='deleteRoom.php?deleteid={$row['room_id']}'>Odstranit</a></button></td>";
         echo "</tr>";
     }
     echo "</table>";

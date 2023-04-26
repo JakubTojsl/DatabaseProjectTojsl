@@ -2,31 +2,31 @@
 
 include ("connect.php");
 $id=$_GET['updateid'];
+mysqli_set_charset($con, "utf8");
 $sql = "SELECT * FROM `employee` WHERE `employee_id` = '$id'";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_array($result);
 
 $login = $row['login'];
 $password = $row['password'];
-$employee_id = $row['employee_id'];
 $name = $row['name'];
 $surname = $row['surname'];
 $job = $row['job'];
 $wage = $row['wage'];
-$room = $row['room'];
 
 if(isset($_POST['submit']))
 {
     $login = $_POST["login"];
     $password = $_POST["password"];
-    $employee_id = $_POST["employee_id"];
     $name = $_POST["name"];
     $surname = $_POST["surname"];
     $job = $_POST["job"];
     $wage = $_POST["wage"];
-    $room = $_POST["room"];
 
-    $sql= "update 'employee' set id='$id', login='$login', password='$password', employee_id='$employee_id', name='$name', surname='$surname', job='$job', wage='$wage', room='$room' where id='$id'";
+    //$sql= "update 'employee' set id='$id', login='$login', password='$password', employee_id='$employee_id', name='$name', surname='$surname', job='$job', wage='$wage', room='$room' where id='$id'";
+    $sql= "UPDATE `employee` SET login='$login', password='$password', name='$name', surname='$surname', job='$job', wage='$wage' WHERE employee_id='$id'";
+
+
     $result = mysqli_query($con, $sql);
     if($result)
     {
@@ -61,10 +61,6 @@ if(isset($_POST['submit']))
             <input type="text" class="form-control" placeholder="Password" name="password" value=<?php echo $password;?>>
         </div>
         <div class="form-group mb-3">
-            <label class="form-label">Employee ID</label>
-            <input type="number" class="form-control" placeholder="Employee_id" name="employee_id" value=<?php echo $employee_id;?>>
-        </div>
-        <div class="form-group mb-3">
             <label class="form-label">Name</label>
             <input type="text" class="form-control" placeholder="Name" name="name" value=<?php echo $name;?>>
         </div>
@@ -79,10 +75,6 @@ if(isset($_POST['submit']))
         <div class="form-group mb-3">
             <label class="form-label">Wage</label>
             <input type="number" class="form-control" placeholder="Wage" name="wage" value=<?php echo $wage;?>>
-        </div>
-        <div class="form-group mb-3">
-            <label class="form-label">Room</label>
-            <input type="number" class="form-control" placeholder="Room" name="room" value=<?php echo $room;?>>
         </div>
         <button type="submit" class="btn btn-primary" name="submit">Update</button>
     </form>
